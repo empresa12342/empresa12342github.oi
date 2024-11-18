@@ -24,11 +24,11 @@
 
     .heart {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       background-color: #ff0000;
       transform: rotate(-45deg);
-      box-shadow: 0 0 30px 15px #ff6666, 0 0 60px 30px #ff3333;
+      box-shadow: 0 0 20px 10px #ff6666, 0 0 40px 20px #ff3333;
       animation: pulse 1.5s infinite;
       z-index: 1;
     }
@@ -37,20 +37,20 @@
     .heart:after {
       content: "";
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       background-color: #ff0000;
       border-radius: 50%;
     }
 
     .heart:before {
-      top: -100px;
+      top: -75px;
       left: 0;
     }
 
     .heart:after {
       top: 0;
-      left: 100px;
+      left: 75px;
     }
 
     .message {
@@ -58,9 +58,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 24px;
+      font-size: 18px;
       color: white;
       font-weight: bold;
+      font-style: italic;
       text-align: center;
       z-index: 2;
     }
@@ -70,11 +71,12 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 16px;
+      font-size: 14px;
       font-style: italic;
       color: white;
       text-align: center;
       max-width: 90%;
+      line-height: 1.6;
     }
 
     @keyframes pulse {
@@ -89,8 +91,8 @@
     /* Corazones que caen */
     .falling-heart {
       position: absolute;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       background-color: #ff0000;
       transform: rotate(-45deg);
       animation: fall 3s linear forwards;
@@ -100,20 +102,20 @@
     .falling-heart:after {
       content: "";
       position: absolute;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       background-color: #ff0000;
       border-radius: 50%;
     }
 
     .falling-heart:before {
-      top: -25px;
+      top: -20px;
       left: 0;
     }
 
     .falling-heart:after {
       top: 0;
-      left: 25px;
+      left: 20px;
     }
 
     @keyframes fall {
@@ -126,6 +128,55 @@
         opacity: 0;
       }
     }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .heart {
+        width: 100px;
+        height: 100px;
+      }
+
+      .heart:before,
+      .heart:after {
+        width: 100px;
+        height: 100px;
+      }
+
+      .heart:before {
+        top: -50px;
+      }
+
+      .heart:after {
+        left: 50px;
+      }
+
+      .message {
+        font-size: 14px;
+      }
+
+      .footer-text {
+        font-size: 12px;
+      }
+
+      .falling-heart {
+        width: 30px;
+        height: 30px;
+      }
+
+      .falling-heart:before,
+      .falling-heart:after {
+        width: 30px;
+        height: 30px;
+      }
+
+      .falling-heart:before {
+        top: -15px;
+      }
+
+      .falling-heart:after {
+        left: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -135,24 +186,22 @@
   </div>
 
   <div class="footer-text">
-    Te amo mucho mi niña, espero que te guste este detalle que hice para ti.<br>
-    No sabes lo afortunado que estoy de tenerte, eres lo mejor que me ha pasado.
+    <p>Te amo mucho, mi niña. Espero que este detalle que hice para ti te guste.</p>
+    <p>No sabes lo afortunado que soy de tenerte en mi vida. Eres lo mejor que me ha pasado.</p>
+    <p>Sé que no soy el mejor hombre, pero siempre intento serlo por ti. Te amo mucho y no quiero que nunca se te olvide.</p>
   </div>
 
-  <!-- Corazones que caen -->
   <script>
     function createFallingHeart() {
       const heart = document.createElement('div');
       heart.classList.add('falling-heart');
       heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.animationDelay = `${Math.random()}s`; // Retraso aleatorio para variación
+      heart.style.animationDelay = `${Math.random()}s`;
       document.body.appendChild(heart);
 
-      // Eliminar el corazón después de la animación
       heart.addEventListener('animationend', () => heart.remove());
     }
 
-    // Crear corazones con un límite
     let activeHearts = 0;
     const maxHearts = 20;
 
@@ -160,7 +209,7 @@
       if (activeHearts < maxHearts) {
         createFallingHeart();
         activeHearts++;
-        setTimeout(() => activeHearts--, 3000); // Disminuir el contador después de la duración
+        setTimeout(() => activeHearts--, 3000);
       }
     }
 
@@ -168,4 +217,5 @@
   </script>
 </body>
 </html>
+
 
