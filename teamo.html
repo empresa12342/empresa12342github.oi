@@ -123,6 +123,76 @@
         opacity: 0;
       }
     }
+
+    /* Media Queries para pantallas pequeñas (celulares) */
+    @media (max-width: 768px) {
+      .heart {
+        width: 150px;
+        height: 150px;
+      }
+
+      .heart:before,
+      .heart:after {
+        width: 150px;
+        height: 150px;
+      }
+
+      .message {
+        font-size: 18px;
+      }
+
+      .footer-text {
+        font-size: 14px;
+        right: 10px;
+        bottom: 5px;
+      }
+
+      .falling-heart {
+        width: 40px;
+        height: 40px;
+      }
+
+      .falling-heart:before,
+      .falling-heart:after {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Media Queries para pantallas muy pequeñas (teléfonos compactos) */
+    @media (max-width: 480px) {
+      .heart {
+        width: 120px;
+        height: 120px;
+      }
+
+      .heart:before,
+      .heart:after {
+        width: 120px;
+        height: 120px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+
+      .footer-text {
+        font-size: 12px;
+        right: 5px;
+        bottom: 5px;
+      }
+
+      .falling-heart {
+        width: 30px;
+        height: 30px;
+      }
+
+      .falling-heart:before,
+      .falling-heart:after {
+        width: 30px;
+        height: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -135,7 +205,7 @@
   <div class="footer-text">
     Te amo mucho mi niña, espero que te guste este detalle que hice para ti.<br>
     No sabes lo afortunado que estoy de tenerte, eres lo mejor que me ha pasado
-    y enserio que con esto que estoy haciendo te des cuenta de que quiero algo bien contigoooooooooooo,TE AMOOOOOOOOOOOOOOO.
+    y enserio que con esto que estoy haciendo te des cuenta de que quiero algo bien contigoooooooooooo, TE AMOOOOOOOOOOOOOOO.
   </div>
 
   <!-- Corazones que caen -->
