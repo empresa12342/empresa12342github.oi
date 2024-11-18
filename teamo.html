@@ -15,6 +15,7 @@
       height: 100vh;
       overflow: hidden;
       font-family: 'Arial', sans-serif;
+      position: relative;
     }
 
     .heart-container {
@@ -66,12 +67,14 @@
 
     .footer-text {
       position: absolute;
-      bottom: 10px;
-      right: 20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 16px;
       font-style: italic;
       color: white;
-      text-align: right;
+      text-align: center;
+      max-width: 90%;
     }
 
     @keyframes pulse {
@@ -131,7 +134,7 @@
     <div class="message">Te amo mucho</div>
   </div>
 
-  <!-- Texto en la esquina inferior derecha -->
+  <!-- Texto en la parte inferior centrado -->
   <div class="footer-text">
     Te amo mucho mi niña, espero que te guste este detalle que hice para ti.<br>
     No sabes lo afortunado que estoy de tenerte, eres lo mejor que me ha pasado.
@@ -151,10 +154,10 @@
 
     // Crear varios corazones cada 500 ms
     setInterval(() => {
-      for (let i = 0; i < 5; i++) { // Cambia el número para controlar cuántos corazones caen a la vez
+      for (let i = 0; i < 3; i++) { // Cambiar a 3 para evitar demasiados corazones caídos a la vez
         createFallingHeart();
       }
-    }, 500); // Cambia este intervalo para ajustar la frecuencia
+    }, 500); // Cambiar el intervalo a 500ms para evitar sobrecargar el navegador
   </script>
 </body>
 </html>
